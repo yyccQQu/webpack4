@@ -1,0 +1,19 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = tab
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
+
+# SHIFT OPTION F
+# 格式化对齐快捷键：
+# Windows： Ctrl + K + F
+# Windows：Shift + Alt + F
+# Mac： Shift + Option + F
+# Ubuntu： Ctrl + Shift + I
