@@ -42,9 +42,9 @@ module.exports = {
             $: "jquery" //在每个模块中注入$
 		})
     ],
-    // externals:{
-    //     jquery: "$" //第三方模块儿，不用打包
-    // },
+    externals:{
+        jquery: "$" //第三方引入模块儿，不用打包
+    },
 	module: {
 		// loader 默认 从右向左 从下到上
 		rules: [
