@@ -39,6 +39,10 @@ module.exports = {
 	module: {
 		// loader 默认 从右向左 从下到上
 		rules: [
+            {
+                test: require.resolve('jquery'),
+                use: 'expose-loader?$' //内联loader
+            },
 			//http://eslint.cn/demo/
 			// {
 			// 	test: /\.js$/,
