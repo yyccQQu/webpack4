@@ -50,7 +50,14 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/,
-                use: 'file-loader'
+                // 当我们的图片 小于多少k的时候 用base64 来转化 否则用用fileloader产生真实的图片
+                // use: 'file-loader'
+                use:{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 200 * 1024
+                    }
+                }
             },
 			{
 				test: /\.js$/, //normal
