@@ -3,6 +3,9 @@ let HtmlWebpackPlugin = require("html-webpack-plugin");
 let MiniCssExtractPlugin = require("mini-css-extract-plugin");
 let OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 let UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
+let webpack = require('webpack')
+
+
 module.exports = {
 	optimization: {
 		minimizer: [
@@ -34,15 +37,21 @@ module.exports = {
 		//把公用的css抽用成一个css文件
 		new MiniCssExtractPlugin({
 			filename: "main.css"
+		}),
+		new webpack.ProvidePlugin({
+            $: "jquery" //在每个模块中注入$
 		})
-	],
+    ],
+    // externals:{
+    //     jquery: "$" //第三方模块儿，不用打包
+    // },
 	module: {
 		// loader 默认 从右向左 从下到上
 		rules: [
-            {
-                test: require.resolve('jquery'),
-                use: 'expose-loader?$' //内联loader
-            },
+			// {
+			//     test: require.resolve('jquery'),
+			//     use: 'expose-loader?$' //内联loader
+			// },
 			//http://eslint.cn/demo/
 			// {
 			// 	test: /\.js$/,
