@@ -93,8 +93,20 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log(12345)\n\n//# sourceURL=webpack:///./src/index.js?");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+console.log(12345);
+
+var Log = function Log() {
+  _classCallCheck(this, Log);
+
+  fmt.printlin(12345);
+  console.lo(123456);
+};
+
+var log = new Log();
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=home.bundle.js.map
