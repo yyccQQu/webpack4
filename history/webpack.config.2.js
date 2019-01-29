@@ -4,17 +4,18 @@ let MiniCssExtractPlugin = require("mini-css-extract-plugin");
 let OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 let UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
 module.exports = {
-	optimization: {
-		minimizer: [
-			new UglifyjsWebpackPlugin({
-				cache: true,
-				parallel: true,
-				sourceMap: true
-			}),
-			new OptimizeCssAssetsWebpackPlugin()
-		]
-	},
-	mode: "development",
+    optimization:{
+        minimizer: 
+        [
+            new UglifyjsWebpackPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true
+            }),
+            new OptimizeCssAssetsWebpackPlugin() 
+        ]
+    },
+	mode: "production",
 	entry: "./src/index.js",
 	output: {
 		filename: "bundle.js",
@@ -39,28 +40,12 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
-				use: {
-					loader: "babel-loader",
-					options: {
-						// 用babel-loader 需要把es6转为es5
-						presets: ["@babel/preset-env"],
-						plugins: [
-                            // 装饰器
-                            ["@babel/plugin-proposal-decorators", { "legacy": true }],
-                            // class A
-                            ["@babel/plugin-proposal-class-properties", { "loose": true }]
-                        ]
-						
-					}
-				}
-			},
-			{
 				test: /.css$/,
 				use: [
 					MiniCssExtractPlugin.loader,
-					"css-loader",
-					"postcss-loader" //autoprefixer 自动加上浏览器前缀
+                    "css-loader",
+                    "postcss-loader", //autoprefixer 自动加上浏览器前缀
+                    
 				]
 			},
 			{
@@ -68,8 +53,9 @@ module.exports = {
 				use: [
 					MiniCssExtractPlugin.loader,
 					"css-loader",
-					"less-loader",
-					"postcss-loader"
+                    "less-loader",
+					"postcss-loader",
+                    
 				]
 			}
 		]
