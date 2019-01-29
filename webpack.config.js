@@ -20,7 +20,8 @@ module.exports = {
 	entry: "./src/index.js",
 	output: {
 		filename: "bundle.js",
-		path: path.resolve(__dirname, "build")
+        path: path.resolve(__dirname, "build"),
+        publicPath: "http://www.baidu.com"
 	},
 
 	plugins: [
@@ -35,7 +36,7 @@ module.exports = {
 		}),
 		//把公用的css抽用成一个css文件
 		new MiniCssExtractPlugin({
-			filename: "main.css"
+			filename: "/css/main.css"
 		}),
 		new webpack.ProvidePlugin({
             $: "jquery" //在每个模块中注入$
@@ -55,7 +56,9 @@ module.exports = {
                 use:{
                     loader: 'url-loader',
                     options: {
-                        limit: 200 * 1024
+                        limit: 200 * 1024,
+                        //分类 -将图片文件存入img文件夹下
+                        outputPath: '/img/' 
                     }
                 }
             },
