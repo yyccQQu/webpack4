@@ -37,9 +37,20 @@ module.exports = {
 		})
 	],
 	module: {
+		// loader 默认 从右向左 从下到上
 		rules: [
+			//http://eslint.cn/demo/
+			// {
+			// 	test: /\.js$/,
+			// 	use: {
+			// 		loader: "eslint-loader",
+			// 		options: {
+			// 			enforce: "pre" //previous前面 post后面
+			// 		}
+			// 	}
+			// },
 			{
-				test: /\.js$/,
+				test: /\.js$/, //normal
 				use: {
 					loader: "babel-loader",
 					options: {
@@ -59,9 +70,9 @@ module.exports = {
 							"@babel/plugin-transform-runtime"
 						]
 					}
-                },
-                include: path.resolve(__dirname, 'src'),
-                exclude: /node_modules/
+				},
+				include: path.resolve(__dirname, "src"),
+				exclude: /node_modules/
 			},
 			{
 				test: /.css$/,
