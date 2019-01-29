@@ -46,14 +46,22 @@ module.exports = {
 						// 用babel-loader 需要把es6转为es5
 						presets: ["@babel/preset-env"],
 						plugins: [
-                            // 装饰器
-                            ["@babel/plugin-proposal-decorators", { "legacy": true }],
-                            // class A
-                            ["@babel/plugin-proposal-class-properties", { "loose": true }]
-                        ]
-						
+							// 装饰器
+							[
+								"@babel/plugin-proposal-decorators",
+								{ legacy: true }
+							],
+							// class A
+							[
+								"@babel/plugin-proposal-class-properties",
+								{ loose: true }
+							],
+							"@babel/plugin-transform-runtime"
+						]
 					}
-				}
+                },
+                include: path.resolve(__dirname, 'src'),
+                exclude: /node_modules/
 			},
 			{
 				test: /.css$/,
