@@ -29,5 +29,19 @@ module.exports = {
 				collapseWhitespace: true //折叠为一行
 			}
 		})
-	]
+	],
+	module: {
+		rules: [
+			// 规则 css-loader 解析 @import语法
+			{
+				test: /.css$/,
+				// 多个loader 需要 [],从右向左执行
+				use: [
+                    // loader 变为对象之后可以多传参数
+                    { loader: "style-loader" }, 
+                    "css-loader"
+                ]
+			}
+		]
+	}
 };

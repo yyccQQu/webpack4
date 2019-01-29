@@ -104,7 +104,7 @@ eval("console.log(\"a.js\")\n\n//# sourceURL=webpack:///./src/a.js?");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("console.log(1)\nlet str = __webpack_require__(/*! ./a.js */ \"./src/a.js\")\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("console.log(1)\nlet str = __webpack_require__(/*! ./a.js */ \"./src/a.js\")\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
