@@ -1,38 +1,13 @@
 {
-    "scripts": {
-        "build": "webpack --config webpack.config.js",
-        "dev": "webpack-dev-server"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.2.2",
-        "@babel/plugin-proposal-class-properties": "^7.3.0",
-        "@babel/plugin-proposal-decorators": "^7.3.0",
-        "@babel/plugin-transform-runtime": "^7.2.0",
-        "@babel/preset-env": "^7.3.1",
-        "autoprefixer": "^9.4.7",
-        "babel-loader": "^8.0.5",
-        "css-loader": "^2.1.0",
-        "expose-loader": "^0.7.5",
-        "file-loader": "^3.0.1",
-        "html-webpack-plugin": "^3.2.0",
-        "html-withimg-loader": "^0.1.16",
-        "optimize-css-assets-webpack-plugin": "^5.0.1",
-        "postcss-loader": "^3.0.0",
-        "style-loader": "^0.23.1",
-        "uglifyjs-webpack-plugin": "^2.1.1",
-        "url-loader": "^1.1.2",
-        "webpack": "^4.29.0",
-        "webpack-cli": "^3.2.1",
-        "webpack-dev-server": "^3.1.14"
-    },
-    "dependencies": {
-        "@babel/polyfill": "^7.2.5",
-        "@babel/runtime": "^7.3.1",
-        "eslint": "^5.12.1",
-        "eslint-loader": "^2.1.1",
-        "jquery": "^3.3.1",
-        "less": "^3.9.0",
-        "less-loader": "^4.1.0",
-        "mini-css-extract-plugin": "^0.5.0"
-    }
+  "name": "webpack4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:yyccQQu/webpack4.git",
+  "author": "js103 <643929860@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
+  }
 }
