@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://www.baidu.com";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -91,9 +91,9 @@
   !*** ./src/docker.png ***!
   \************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-eval("module.exports = __webpack_require__.p + \"/img/c4ddf2284717e1bae54cf7083b11067b.png\";\n\n//# sourceURL=webpack:///./src/docker.png?");
+eval("module.exports = \"http://baidu.com/c4ddf2284717e1bae54cf7083b11067b.png\";\n\n//# sourceURL=webpack:///./src/docker.png?");
 
 /***/ }),
 

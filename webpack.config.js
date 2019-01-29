@@ -20,8 +20,8 @@ module.exports = {
 	entry: "./src/index.js",
 	output: {
 		filename: "bundle.js",
-        path: path.resolve(__dirname, "build"),
-        publicPath: "http://www.baidu.com"
+		path: path.resolve(__dirname, "build")
+		// publicPath: "http://www.baidu.com"
 	},
 
 	plugins: [
@@ -39,29 +39,30 @@ module.exports = {
 			filename: "/css/main.css"
 		}),
 		new webpack.ProvidePlugin({
-            $: "jquery" //在每个模块中注入$
+			$: "jquery" //在每个模块中注入$
 		})
-    ],
+	],
 	module: {
 		// loader 默认 从右向左 从下到上
 		rules: [
-            {
-                test:/\.html$/,
-                use: 'html-withimg-loader' // 在html中 打包图片的loader
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                // 当我们的图片 小于多少k的时候 用base64 来转化 否则用用fileloader产生真实的图片
-                // use: 'file-loader'
-                use:{
-                    loader: 'url-loader',
-                    options: {
-                        limit: 200 * 1024,
-                        //分类 -将图片文件存入img文件夹下
-                        outputPath: '/img/' 
-                    }
-                }
-            },
+			{
+				test: /\.html$/,
+				use: "html-withimg-loader" // 在html中 打包图片的loader
+			},
+			{
+				test: /\.(png|jpg|gif)$/,
+				// 当我们的图片 小于多少k的时候 用base64 来转化 否则用用fileloader产生真实的图片
+				// use: 'file-loader'
+				use: {
+					loader: "url-loader",
+					options: {
+						limit: 200 * 1024,
+						//分类 -将图片文件存入img文件夹下
+						outputPath: "/img/"
+						// publicPath: 'http://baidu.com' //单独加上publicPath
+					}
+				}
+			},
 			{
 				test: /\.js$/, //normal
 				use: {
