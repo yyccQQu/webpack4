@@ -1,13 +1,1 @@
-body {
-    font-size: 16px;
-    background: red;
-}
-body {
-    background: #faf;
-}
-body div {
-  border: 1px solid #fdafaf;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
+body{font-size:16px;background:red;background:#faf}body div{border:1px solid #fdafaf;-webkit-transform:rotate(45deg);transform:rotate(45deg)}
