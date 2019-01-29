@@ -1,14 +1,18 @@
 
-// import $ from 'expose-loader?$!jquery'
-// expose-loader 暴露 全局的loader 内联的loader
-// import $ from "jquery";
-// console.log($,'///',window.$)
+// webpack 打包图片
 
-//直接取 jquery
-console.log($)
+// 1）在js中创建图片来引入
+// 2）在css引入 background（“url")
+// 3) <img src=""> 
 
-// 全局变量引入
-// 1) expose-loader 暴露到window上
-// 2） providePlugin 给每个人提供一个 $
-// 3)  引入不打包的方式
-//
+// file-loader 默认会在内部生成一张图片 到build目录下
+// 把生成的图片的名字返回回来
+
+
+import logo from './docker.png'
+import './index.less'
+
+let image = new Image()
+image.src = logo;
+
+document.body.append(image)

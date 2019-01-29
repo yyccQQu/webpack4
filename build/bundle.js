@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/docker.png":
+/*!************************!*\
+  !*** ./src/docker.png ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"c4ddf2284717e1bae54cf7083b11067b.png\";\n\n//# sourceURL=webpack:///./src/docker.png?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -94,18 +105,18 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"jquery\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n// import $ from 'expose-loader?$!jquery'\n// expose-loader 暴露 全局的loader 内联的loader\n // console.log($,'///',window.$)\n//直接取 jquery\n\nconsole.log(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _docker_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./docker.png */ \"./src/docker.png\");\n/* harmony import */ var _docker_png__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_docker_png__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.less */ \"./src/index.less\");\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_1__);\n// webpack 打包图片\n// 1）在js中创建图片来引入\n// 2）在css引入 background（“url\")\n// 3) <img src=\"\"> \n// file-loader 默认会在内部生成一张图片 到build目录下\n// 把生成的图片的名字返回回来\n\n\nvar image = new Image();\nimage.src = _docker_png__WEBPACK_IMPORTED_MODULE_0___default.a;\ndocument.body.append(image);\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
-/***/ "jquery":
-/*!********************!*\
-  !*** external "$" ***!
-  \********************/
+/***/ "./src/index.less":
+/*!************************!*\
+  !*** ./src/index.less ***!
+  \************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = $;\n\n//# sourceURL=webpack:///external_%22$%22?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/index.less?");
 
 /***/ })
 

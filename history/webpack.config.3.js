@@ -5,6 +5,7 @@ let OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin
 let UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
 let webpack = require('webpack')
 
+
 module.exports = {
 	optimization: {
 		minimizer: [
@@ -41,17 +42,26 @@ module.exports = {
             $: "jquery" //在每个模块中注入$
 		})
     ],
+    // externals:{
+    //     jquery: "$" //第三方引入模块儿，不用打包
+    // },
 	module: {
 		// loader 默认 从右向左 从下到上
 		rules: [
-            {
-                test:/\.html$/,
-                use: 'html-withimg-loader' // 在html中 打包图片的loader
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use: 'file-loader'
-            },
+			// {
+			//     test: require.resolve('jquery'),
+			//     use: 'expose-loader?$' //内联loader
+			// },
+			//http://eslint.cn/demo/
+			// {
+			// 	test: /\.js$/,
+			// 	use: {
+			// 		loader: "eslint-loader",
+			// 		options: {
+			// 			enforce: "pre" //previous前面 post后面
+			// 		}
+			// 	}
+			// },
 			{
 				test: /\.js$/, //normal
 				use: {
