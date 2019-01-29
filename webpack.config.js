@@ -38,10 +38,28 @@ module.exports = {
 				// 多个loader 需要 [],从右向左执行
 				use: [
                     // loader 变为对象之后可以多传参数
-                    { loader: "style-loader" }, 
+                    { 
+                        loader: "style-loader",
+                        options: { //将样式插入顶部，优先级为最小
+                            insertAt: 'top'
+                        }
+                    }, 
                     "css-loader"
                 ]
-			}
+            },
+            {
+                test: /.less$/,
+                use: [
+                    {
+                        loader: "style-loader",
+                        options: { 
+                            insertAt: 'top'
+                        }
+                    },
+                    "css-loader",
+                    "less-loader" //从右至左加载
+                ]
+            }
 		]
 	}
 };
