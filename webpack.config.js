@@ -31,8 +31,9 @@ module.exports = {
 				test: /.css$/,
 				use: [
 					MiniCssExtractPlugin.loader,
+                    "css-loader",
                     "postcss-loader", //autoprefixer 自动加上浏览器前缀
-					"css-loader"
+                    
 				]
 			},
 			{
@@ -40,8 +41,9 @@ module.exports = {
 				use: [
 					MiniCssExtractPlugin.loader,
 					"css-loader",
+                    "less-loader",
 					"postcss-loader",
-					"less-loader"
+                    
 				]
 			}
 		]
