@@ -24,18 +24,21 @@ module.exports = {
 		path: path.resolve(__dirname, "dist")
 	},
 	devServer: {
-		// proxy:{
-		//     //访问 /api 就相当于 访问 后面的地址了
-		//     '/api': 'http://localhost:3000'
+        // 2）单纯模拟数据
+        before(app) {
+            app.get("/api/user", (req, res) => {
+				res.json({ name: "yyccqqu1" });
+			});
+        }
+        //
+        //
+        // 1）
+		// proxy: {
+		// 	"/api": {
+		// 		target: "http://localhost:3000",
+		// 		pathRewrite: {'/api':''}
+		// 	}
 		// }
-        // 都带了api 重写路径 ,将API去掉即可请求
-        // 原接口无/api，请求接口加上api只是为了跨域，之后再去掉
-		proxy: {
-			"/api": {
-				target: "http://localhost:3000",
-				pathRewrite: {'/api':''}
-			}
-		}
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
