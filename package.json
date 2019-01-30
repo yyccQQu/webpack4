@@ -6,13 +6,15 @@
   "author": "js103 <643929860@qq.com>",
   "license": "MIT",
   "scripts": {
-      "dev": "webpack-dev-server",
-      "build": "webpack"
+    "dev": "webpack-dev-server",
+    "build": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.1",
+    "copy-webpack-plugin": "^4.6.0",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
