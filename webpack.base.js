@@ -43,11 +43,6 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: "./index.html",
 			filename: "index.html" //但文件的时候改为index，要不找不到
-        }),
-        new webpack.DefinePlugin({
-            DEV: JSON.stringify('production'),
-            FLAG: 'true',
-            EXPRESSION: '1+1'
         })
 	]
 };
