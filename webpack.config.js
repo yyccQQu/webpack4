@@ -11,6 +11,11 @@ module.exports = {
 		filename: "bundle.js",
 		path: path.resolve(__dirname, "dist")
     },
+    devServer: {
+        port: 3000,
+        open: true,
+        contentBase: './dist'
+    },
     module:{
         noParse:/jquery/, //不去解析jquery中的依赖关系
         rules:[
