@@ -4,8 +4,8 @@ let express = require('express');
 
 let app = express()
 
-app.get('/api/user',(req,res)=>{
-    res.json({name:'yyccqqu'})
+app.get('/user',(req,res)=>{
+    res.json({name:'yyccqqu1'})
 })
 
 
