@@ -36,6 +36,12 @@ module.exports = {
         ]
     },
 	plugins: [
+        //引用 动态链接库（_dll_react.js）的插件
+        //寻找任务清单
+        // 如果找不到，再去打包那些import的文件
+        new webpack.DllReferencePlugin({
+            manifest: path.resolve(__dirname,'dist','mainfest.json')
+        }),
         new webpack.IgnorePlugin(/\.\/locale/,/moment/),
 		new HtmlWebpackPlugin({
 			template: "./public/index.html"

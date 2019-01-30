@@ -19,3 +19,4 @@
 - ！！！webpack 区分开发环境和生产环境，并根据环境自动区别（当环境为生产环境的时候，会根据配置尽可能的压缩代码；而开发环境就算配置了压缩项，也不会压缩代码）！！！
 - master 为 dev-1 , 依赖安装用 yarn install ,添加模块用 yarn+模块名， 详情见 https://yarnpkg.com/zh-Hans/
 - 打包一定要看清路径以及依赖关系 `ERROR in Xmodule not found: Error:...`
+- 同时执行多条命令 `concurrently：` https://segmentfault.com/q/1010000006780705
