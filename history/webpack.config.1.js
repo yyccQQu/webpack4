@@ -5,25 +5,10 @@ let webpack = require('webpack')
 
 
 module.exports = {
-    mode: "production",
-    optimization:{
-        splitChunks:{ // 分割代码块
-            cacheGroups:{ // 缓存组
-                common: { //公共模块
-                    chunks: 'initial',
-                    minSize: 0, //最少有0个字节公用
-                    minChunks: 2, //至少公用一次以上
-                }
-            }
-        }
-
-    },
-	entry: {
-        index: './src/index.js',
-        other: './src/other.js'
-    },
+	mode: "development",
+	entry: "./src/index.js",
 	output: {
-		filename: "[name].bundle.js",
+		filename: "bundle.js",
 		path: path.resolve(__dirname, "dist")
 	},
 	devServer: {
@@ -55,12 +40,17 @@ module.exports = {
 		]
 	},
 	plugins: [
-		
+		//引用 动态链接库（_dll_react.js）的插件
+		//寻找任务清单
+		// 如果找不到，再去打包那些import的文件
+		new webpack.DllReferencePlugin({
+			manifest: path.resolve(__dirname, "dist", "mainfest.json")
+		}),
 		new webpack.IgnorePlugin(/\.\/locale/, /moment/),
 		new HtmlWebpackPlugin({
 			template: "./public/index.html"
 		}),
-		new CleanWebpackPlugin("./dist"),
+		// new CleanWebpackPlugin("./dist"),
 		
 	]
 };
