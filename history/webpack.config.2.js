@@ -6,9 +6,29 @@ let webpack = require('webpack')
 
 module.exports = {
     mode: "production",
-    
+    optimization:{
+        splitChunks:{ // 分割代码块
+            cacheGroups:{ // 缓存组
+                common: { //公共模块
+                    chunks: 'initial',
+                    minSize: 0, //最少有0个字节公用
+                    minChunks: 2, //至少公用2次以上
+                },
+                //第三方抽离
+                vendor:{
+                    priority: 1, //最先抽离
+                    test: /node_modules/, //把node_modules内被引用的文件抽离出来
+                    chunks: 'initial',
+                    minSize: 0, //最少有0个字节公用
+                    minChunks: 2, //至少公用2次以上
+                }
+            }
+        }
+
+    },
 	entry: {
         index: './src/index.js',
+        other: './src/other.js'
     },
 	output: {
 		filename: "[name].js",
@@ -29,10 +49,7 @@ module.exports = {
 				use: {
 					loader: "babel-loader",
 					options: {
-                        //预设
-                        presets: ["@babel/preset-env", "@babel/preset-react"],
-                        //插件
-                        plugins: ['@babel/plugin-syntax-dynamic-import']
+						presets: ["@babel/preset-env", "@babel/preset-react"]
 					}
 				}
 			},

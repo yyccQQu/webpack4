@@ -1,7 +1,12 @@
-import './a'
-import './b'
-import $ from "jquery";
+let button = document.createElement('button')
+button.innerHTML = 'hello'
 
-console.log($);
+button.addEventListener('click', function() {
+    // 草案中的语法 @babel/plugin-syntax-dynamic-import
+    import('./source').then(data => {
+        console.log(data.default,'date')
+    })
+    console.log('click')
+})
 
-console.log("index.js")
+document.body.appendChild(button)
