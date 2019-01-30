@@ -2,6 +2,7 @@ let path = require('path')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 let CleanWebpackPlugin = require("clean-webpack-plugin");
 let webpack = require('webpack')
+const HappyPack = require("happypack");
 
 
 module.exports = {
@@ -23,19 +24,17 @@ module.exports = {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				include: path.resolve("src"),
-				use: {
-					loader: "babel-loader",
-					options: {
-						presets: ["@babel/preset-env", "@babel/preset-react"]
-					}
-				}
+				use: "happypack/loader?id=happybabel"
+				// use: {
+				// 	loader: "babel-loader",
+				// 	options: {
+				// 		presets: ["@babel/preset-env", "@babel/preset-react"]
+				// 	}
+				// }
 			},
 			{
 				test: /\.css$/,
-                use: [
-                    "style-loader",
-                    "css-loader"
-                ]
+				use: "happypack/loader?id=happycss"
 			}
 		]
 	},
@@ -51,6 +50,23 @@ module.exports = {
 			template: "./public/index.html"
 		}),
 		// new CleanWebpackPlugin("./dist"),
-		
+		new HappyPack({
+			id: "happybabel",
+			use: [
+				{
+					loader: "babel-loader",
+					options: {
+						presets: ["@babel/preset-env", "@babel/preset-react"]
+					}
+				}
+			]
+		}),
+		new HappyPack({
+            id: "happycss",
+            use: [
+                "style-loader",
+                "css-loader"
+            ]
+		})
 	]
 };
