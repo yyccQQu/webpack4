@@ -1,7 +1,7 @@
 
 let {smart} = require('webpack-merge');
 let base = require("./webpack.base.js");
-let HtmlWebpackPlugin = require("html-webpack-plugin");
+let CleanWebpackPlugin = require("clean-webpack-plugin");
 
 let webpack = require("webpack");
 
@@ -21,15 +21,12 @@ module.exports = smart(base, {
 		minimizer: []
 	},
 	plugins: [
-        new HtmlWebpackPlugin({
-            template: "./index.html",
-            filename: "index.html" //但文件的时候改为index，要不找不到
-        }),
 		new webpack.DefinePlugin({
             DEV: modes,
 			FLAG: "true",
 			EXPRESSION: "1+1"
-		})
+        }),
+        new CleanWebpackPlugin("./dist"),
 	]
 });
 

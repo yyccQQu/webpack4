@@ -101,7 +101,7 @@ if (false) {} else {
   url = 'http://www.baidu.com';
 }
 
-console.log(url, '------');
+console.log(url, '------>', "development");
 console.log( false ? undefined : _typeof(true));
 console.log(1+1);
 

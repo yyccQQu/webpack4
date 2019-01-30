@@ -18,10 +18,6 @@ module.exports = smart(base, {
 	devtool: "source-map",
 
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: "./index.html",
-			filename: "index.html" //但文件的时候改为index，要不找不到
-		}),
 		new webpack.DefinePlugin({
             DEV: modes,
 			FLAG: "true",

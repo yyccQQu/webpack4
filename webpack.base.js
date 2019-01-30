@@ -38,7 +38,7 @@ module.exports = {
             bootstrapCss: "bootstrap/dist/css/bootstrap.css",
 		}
 	},
-	
+	//合并之后的 plugins 类似css覆盖机制，没有的会自动添加
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./index.html",
