@@ -18,3 +18,4 @@
 - 构建开发服务器的时候 起服务构建的时候需要html文件，否则不会显示页面，只会显示路径 
 - ！！！webpack 区分开发环境和生产环境，并根据环境自动区别（当环境为生产环境的时候，会根据配置尽可能的压缩代码；而开发环境就算配置了压缩项，也不会压缩代码）！！！
 - master 为 dev-1 , 依赖安装用 yarn install ,添加模块用 yarn+模块名， 详情见 https://yarnpkg.com/zh-Hans/
+- 打包一定要看清路径以及依赖关系 `ERROR in Xmodule not found: Error:...`

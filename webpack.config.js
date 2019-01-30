@@ -1,27 +1,35 @@
 let path = require('path')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
+let CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
 	mode: "development",
-	// 多入口
-	entry: {
-		home: "./src/index.js",
-		other: "./src/other.js"
-	},
+	entry: "./src/index.js",
 	output: {
-		filename: "[name].bundle.js",
+		filename: "bundle.js",
 		path: path.resolve(__dirname, "dist")
-	},
+    },
+    module:{
+        noParse:/jquery/, //不去解析jquery中的依赖关系
+        rules:[
+            {
+                test:/\.js$/,
+                use:{
+                    loader:'babel-loader',
+                    options:{
+                        presets:[
+                            '@babel/preset-env',
+                            '@babel/preset-react'
+                        ]
+                    }
+                }
+            }
+        ]
+    },
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "./index.html",
-			filename: "home.html",
-			chunks: ["home"]
+			template: "./public/index.html"
 		}),
-		new HtmlWebpackPlugin({
-			template: "./index.html",
-			filename: "other.html",
-            chunks: ["other"]
-		})
+		new CleanWebpackPlugin("./dist")
 	]
 };

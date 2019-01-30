@@ -5,8 +5,17 @@
   "repository": "git@github.com:yyccQQu/webpack4.git",
   "author": "js103 <643929860@qq.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "webpack"
+  },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "jquery": "^3.3.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
   }
