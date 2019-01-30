@@ -1,10 +1,15 @@
 
-console.log(12345)
+let xhr = new XMLHttpRequest();
 
-class Log{
-    constructor() {
-        console.log(765)
-    }
+// http://localhost:8080 webpack-dev-server的服务 -》 3000
+
+// http.proxy
+
+
+xhr.open('GET','/api/user', true)
+
+xhr.onload = function() {
+    console.log(xhr.response);
 }
 
-let log = new Log()
+xhr.send()
