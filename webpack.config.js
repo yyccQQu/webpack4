@@ -12,7 +12,15 @@ module.exports = {
                 common: { //公共模块
                     chunks: 'initial',
                     minSize: 0, //最少有0个字节公用
-                    minChunks: 2, //至少公用一次以上
+                    minChunks: 2, //至少公用2次以上
+                },
+                //第三方抽离
+                vendor:{
+                    priority: 1, //最先抽离
+                    test: /node_modules/, //把node_modules内被引用的文件抽离出来
+                    chunks: 'initial',
+                    minSize: 0, //最少有0个字节公用
+                    minChunks: 2, //至少公用2次以上
                 }
             }
         }
@@ -23,7 +31,7 @@ module.exports = {
         other: './src/other.js'
     },
 	output: {
-		filename: "[name].bundle.js",
+		filename: "[name].js",
 		path: path.resolve(__dirname, "dist")
 	},
 	devServer: {
