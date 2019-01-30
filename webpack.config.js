@@ -24,15 +24,19 @@ module.exports = {
 		path: path.resolve(__dirname, "dist")
 	},
 	devServer: {
-        // 2）单纯模拟数据
-        before(app) {
-            app.get("/api/user", (req, res) => {
-				res.json({ name: "yyccqqu1" });
-			});
-        }
-        //
-        //
-        // 1）
+		// 3) 有服务端 不用代理处理,
+		//    前端和服务端启动在一个端口上
+        //    在服务端启动webpack， 端口用服务端端口
+        
+        
+		// 2）单纯模拟数据
+		// before(app) {
+		//     app.get("/api/user", (req, res) => {
+		// 		res.json({ name: "yyccqqu1" });
+		// 	});
+		// }
+		//
+		// 1）
 		// proxy: {
 		// 	"/api": {
 		// 		target: "http://localhost:3000",
