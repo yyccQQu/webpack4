@@ -9,6 +9,10 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader"]
+			},
+			{
 				test: /\.js$/,
 				use: {
 					loader: "babel-loader",
@@ -23,12 +27,19 @@ module.exports = {
 		filename: "[name].bundle.js",
 		path: path.resolve(__dirname, "dist")
 	},
+	resolve: {
+        modules: [path.resolve("node_modules")],
+        extensions: ['.wasm', '.mjs', '.js', '.json','.css'],
+		// mainFiles: ['index'],入口文件的名字 index.js
+		mainFields: ["style", "main"], //在package包的配置中先找style，再找main
+		alias: {//别名
+            bootstrapCss: "bootstrap/dist/css/bootstrap.css",
+		}
+	},
 	devServer: {
 		// 3) 有服务端 不用代理处理,
 		//    前端和服务端启动在一个端口上
-        //    在服务端启动webpack， 端口用服务端端口
-        
-        
+		//    在服务端启动webpack， 端口用服务端端口
 		// 2）单纯模拟数据
 		// before(app) {
 		//     app.get("/api/user", (req, res) => {

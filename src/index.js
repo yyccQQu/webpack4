@@ -1,15 +1,5 @@
 
-let xhr = new XMLHttpRequest();
+// import "bootstrapCss";
+import 'bootstrap';
+import "./style";
 
-// http://localhost:8080 webpack-dev-server的服务 -》 3000
-
-// http.proxy
-
-
-xhr.open('GET','/user', true)
-
-xhr.onload = function() {
-    console.log(xhr.response);
-}
-
-xhr.send()
