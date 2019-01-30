@@ -24,10 +24,12 @@ module.exports = {
 		filename: "[name].bundle.js",
 		path: path.resolve(__dirname, "dist")
 	},
-	devtool: "source-map",
-	// 'eval-source-map' //可以反映出错行列，但是不会生成map文件
-    // 'cheap-module-source-map' //不可以反映出错行列，但是会生成map文件，不会和代码关联起来,一个单独的映射文件
-    // 'cheap-module-eval-source-map' //不会生成map文件，不会产生列，集成在打包后的文件中
+    watch: true,
+    watchOptions: {
+        poll: 1000, // 每秒监控
+        aggregateTimeout: 500, //防抖 ，0.5秒内有变化就延时编译
+        ignored: /node_modules/ //忽略文件
+    },
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./index.html",
