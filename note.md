@@ -20,3 +20,22 @@
 - master 为 dev-1 , 依赖安装用 yarn install ,添加模块用 yarn+模块名， 详情见 https://yarnpkg.com/zh-Hans/
 - 打包一定要看清路径以及依赖关系 `ERROR in Xmodule not found: Error:...`
 - 同时执行多条命令 `concurrently：` https://segmentfault.com/q/1010000006780705
+
+
+
+
+## 知识点
+- Tapable 
+```
+    这个小型库是webpack中的核心实用程序，但也可以在别处用于提供类似的插件接口。webpack中的许多对象扩展了 Tapable类。该类公开tap，tapAsync以及tapPromise插件可用于注入将在整个编译过程中触发的自定义构建步骤的方法。
+    请参阅文档以了解更多信息。理解这三种tap方法以及提供它们的钩子是至关重要的。将注意扩展的对象Tapable（例如编译器），它们提供的钩子以及每个钩子的类型（例如SyncHook）。
+    const {
+        Tapable,
+        SyncHook, //同步钩子
+        SyncBailHook, //同步钩子
+        AsyncParallelHook, //异步钩子 
+        AsyncSeriesHook //异步钩子
+    } = require("tapable");
+```
+
+
