@@ -1,3 +1,14 @@
 #! /usr/bin/env node
 
-console.log('start1234');
+// 1) 需要找到当前执行命令的路径，拿到webpack.config.js
+
+let path = require('path');
+
+// config 配置文件
+let config = require(path.resolve(__dirname));
+
+let Compiler = require('../lib/Compiler.js')
+let compiler = new Compiler(config)
+
+//标示运行编译
+compiler.run()
