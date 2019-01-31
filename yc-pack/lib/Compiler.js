@@ -90,6 +90,7 @@ class Compiler {
         //模板路径
         // let templateString = fs.readFileSync(this.getSource(path.join(__dirname, 'main.ejs')));
         // https://stackoverflow.com/questions/51861832/nodejs-reading-file-enametoolong/51870822#51870822
+        // TODO 只能替换一次，需要把最文档最前面的【root】字符串去掉
         let templateString = path.resolve(this.getSource(path.join(__dirname, "main.ejs")))
             .replace(`/${this.root}\//`,"");
         // console.log(templateString, "templateString");
