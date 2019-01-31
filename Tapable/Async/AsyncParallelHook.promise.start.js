@@ -45,3 +45,5 @@ l.tap() //注册监听事件
 
 l.start() //启动钩子
 
+// AsyncParralleBailHook() 带保险的异步并发的钩子
+// 异步并发
