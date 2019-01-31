@@ -1,10 +1,11 @@
 let fs = require('fs')
 let path = require('path')
-let processs = require('process')
+let process = require('process')
 let babylon = require('babylon')
 let t = require('@babel/types')
 let traverse = require("@babel/traverse").default;
 let generator = require('@babel/generator').default
+let ejs = require('ejs')
 
 // babylon 主要就是把源码 转换成ast
 // @babel/traverse
@@ -20,10 +21,11 @@ class Compiler {
 		//需要保存所有模块的模块依赖
 		this.modules = {};
 		this.entry = config.entry; //入口路径
-		this.root = processs.cwd(); //工作路径
+		this.root = process.cwd(); //工作路径
 	}
 	getSource(modulePath) {
         let content = fs.readFileSync(modulePath, "utf8");
+        console.log(content,'contentsss')
         return content
     }
     // 解析源码
@@ -57,6 +59,7 @@ class Compiler {
         let moduleName = './'+path.relative(this.root,modulePath);
        
         if(isEntry){ //为true就为父模块
+            console.log(moduleName, "moduleName");
             this.entryId = moduleName; //保存入口的名字
         }
         console.log("source:--->", source);
@@ -80,12 +83,28 @@ class Compiler {
 	emitFile() {
         //发射文件 
         //用数据 渲染我们的打包结果
-        
+        // 拿到 输出到哪个目录下 输出路径
+        let output = this.config.output;
+        let main = path.join(output.path,output.filename);
+        console.log("-------")
+        //模板路径
+        // let templateString = fs.readFileSync(this.getSource(path.join(__dirname, 'main.ejs')));
+        // https://stackoverflow.com/questions/51861832/nodejs-reading-file-enametoolong/51870822#51870822
+        let templateString = path.resolve(this.getSource(path.join(__dirname, "main.ejs")))
+            .replace(`/${this.root}\//`,"");
+        // console.log(templateString, "templateString");
+        console.log("-------");
 
+        let code = ejs.render(templateString,{entryId:this.entryId,modules:this.modules})
+        this.assets = {}
+        //资源中路径对应的代码
+        this.assets[main] = code;
+        // console.log("main",main)
+        fs.writeFileSync(main, this.assets[main]);
 	}
 	run() {
-		//执行 并且创建模块的依赖关系
-		this.buildModule(path.resolve(this.root, this.entry), true);
+        //执行 并且创建模块的依赖关系
+		this.buildModule(path.resolve(this.root, this.entry),true);
         console.log(this.modules,this.entryId)
 		//发射一个文件 打包后的文件
 		this.emitFile();
