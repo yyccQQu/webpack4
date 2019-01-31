@@ -15,26 +15,23 @@ class Lesson {
 		};
     }
     tap(){ //注册监听函数 延迟一秒只是为了验证函数是异步执行的
-        this.hooks.arch.tapPromise('node', (name)=> {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    console.log("node", name);
-                    resolve();
-                }, 1000)
-            })
+        this.hooks.arch.tapAsync('node', (name, cb)=> {
+            
+            setTimeout(() => {
+                console.log('node', name)
+                cb();
+            }, 1000)
         });
-        this.hooks.arch.tapPromise("react", (name)=> {
-            return new Promise((resolve,reject) => {
-                setTimeout(() => {
-                    console.log("react", name);
-                    resolve();
-                }, 1000)
-            })
+        this.hooks.arch.tapAsync("react", (name, cb)=> {
+            setTimeout(() => {
+                console.log("react", name);
+                cb();
+            }, 1000)
 		}); 
     }
 	start(){
         //只有当以上tab函数执行完了之后才会执行最后的回调函数
-        this.hooks.arch.promise("yyccqqu").then(function(){
+        this.hooks.arch.callAsync("yyccqqu",function(){
             console.log('end')
         })
     }
