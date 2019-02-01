@@ -12,17 +12,24 @@ module.exports = {
     module:{
         noParse:/jquery/, //不去解析jquery中的依赖关系
         rules:[
+            // {
+            //     test:/\.js$/,
+            //     use:{
+            //         loader:'babel-loader',
+            //         options:{
+            //             presets:[
+            //                 '@babel/preset-env',
+            //                 '@babel/preset-react'
+            //             ]
+            //         }
+            //     }
+            // },
             {
-                test:/\.js$/,
-                use:{
-                    loader:'babel-loader',
-                    options:{
-                        presets:[
-                            '@babel/preset-env',
-                            '@babel/preset-react'
-                        ]
-                    }
-                }
+                test: /\.less$/,
+                use: [
+                    path.resolve(__dirname, 'loader', 'style-loader'),
+                    path.resolve(__dirname,'loader','less-loader')
+                ]
             }
         ]
     },

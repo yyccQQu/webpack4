@@ -24,7 +24,31 @@ class Compiler {
 		this.root = process.cwd(); //工作路径
 	}
 	getSource(modulePath) {
+        let rules = this.config.module.rules;
         let content = fs.readFileSync(modulePath, "utf8");
+        //拿到每个规则来处理
+        for(let i=0;i<rules.length;i++) {
+            let rule = rules[i]
+            let {test,use} = rule;
+            console.log("rule", rule);
+            console.log("test", test);
+            console.log("use", use);
+            console.log("modulePath", modulePath);
+            console.log("test",test)
+            let len = use.length - 1;
+            if(test.test(modulePath)){ //这个模块需要通过loader来转化
+                //获取对应的loader函数
+                function normalLoader() {
+                    let loader = require(use[len--]);
+                    //递归实现转化功能
+                    if(len>=0){
+                        content = loader(content)
+                    }
+                }
+                normalLoader()
+            }
+        }
+        
         console.log(content,'contentsss')
         return content
     }
